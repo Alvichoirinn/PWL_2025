@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PhotoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,4 +84,10 @@ Route::resource('photos', PhotoController::class)->only([
 Route::resource('photos', PhotoController::class)->except([
     'create', 'store', 'update', 'destroy'
 ]);
+
+Route::get('/greeting', function () {
+	return view('blog.hello', ['name' => 'Alvi Choirinnikmah']);
+});
+
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
 
